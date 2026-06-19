@@ -51,7 +51,22 @@ export const useCalorieCalculator = () => {
       activityMultiplier: activityMultiplier ?? 0,
     });
     setResult(data);
+
+    setTimeout(() => {
+      const element = document.getElementById("calorie-results");
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 100);
   };
 
-  return { formData, errors, onChangeFormData, onSubmit, result };
+  const onResetForm = () => {
+    setFormData(initialCalorieForm);
+    setResult(null);
+  };
+
+  return { formData, errors, onChangeFormData, onSubmit, result, onResetForm };
 };

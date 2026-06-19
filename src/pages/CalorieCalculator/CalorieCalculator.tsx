@@ -5,7 +5,7 @@ import { useCalorieCalculator } from "./useCalorieCalculator";
 import { CalorieResult } from "./CalorieResult/CalorieResult";
 
 export const CalorieCalculator = () => {
-  const { formData, errors, onChangeFormData, onSubmit, result } =
+  const { formData, errors, onChangeFormData, onSubmit, result, onResetForm } =
     useCalorieCalculator();
 
   return (
@@ -23,9 +23,10 @@ export const CalorieCalculator = () => {
         errors={errors}
         onChangeFormData={onChangeFormData}
         onSubmit={onSubmit}
-        isDisabled={!!result}
+        isCalculated={!!result}
+        onResetForm={onResetForm}
       />
-      {result && <CalorieResult result={result} />}
+      <CalorieResult result={result} />
     </div>
   );
 };

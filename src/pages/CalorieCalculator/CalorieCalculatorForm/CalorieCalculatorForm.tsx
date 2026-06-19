@@ -6,6 +6,7 @@ import { ActivityLevels } from "./ActivityLevels/ActivityLevels";
 import { FieldError } from "@/components/ui/field";
 import type { TCalorieCalculatorForm } from "./calorieCalculatorSchema";
 import type { TActivityLevelKeys } from "@/types";
+import { RotateCcw } from "lucide-react";
 
 type TCalorieCalculatorFormProps = {
   formData: TCalorieCalculatorForm;
@@ -15,20 +16,22 @@ type TCalorieCalculatorFormProps = {
     height: string;
     weight: string;
   };
-  isDisabled: boolean;
+  isCalculated: boolean;
   onChangeFormData: (
     value: string,
     field: keyof TCalorieCalculatorForm,
   ) => void;
   onSubmit: (e: React.SubmitEvent) => void;
+  onResetForm: () => void;
 };
 
 export const CalorieCalculatorForm = ({
   formData,
   errors,
-  isDisabled,
+  isCalculated,
   onChangeFormData,
   onSubmit,
+  onResetForm,
 }: TCalorieCalculatorFormProps) => {
   const { sex, age, height, weight, activityLevel } = formData;
 
@@ -84,14 +87,25 @@ export const CalorieCalculatorForm = ({
         selectedLevel={activityLevel as TActivityLevelKeys}
         onChange={(value) => onChangeFormData(value, "activityLevel")}
       />
-      <Button
-        size="lg"
-        className="w-full mt-10"
-        type="submit"
-        disabled={isDisabled}
-      >
-        Izračunaj
-      </Button>
+      <div className="flex items-center gap-2 w-full mt-10">
+        <Button
+          size="lg"
+          className="flex-1 hover:cursor-pointer"
+          type="submit"
+          disabled={isCalculated}
+        >
+          Izračunaj
+        </Button>
+        {isCalculated && (
+          <Button
+            type="button"
+            className="hover:cursor-pointer"
+            onClick={onResetForm}
+          >
+            <RotateCcw />
+          </Button>
+        )}
+      </div>
     </form>
   );
 };
