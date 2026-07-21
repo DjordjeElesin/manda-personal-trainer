@@ -4,7 +4,7 @@ import { Footer } from "./components/Footer";
 const App = () => {
   return (
     <div className="flex flex-col min-h-svh relative">
-      <div className="flex-1">
+      <div className="flex-1 min-w-72">
         <Outlet />
       </div>
       <Footer />

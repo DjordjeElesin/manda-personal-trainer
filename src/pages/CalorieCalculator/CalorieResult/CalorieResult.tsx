@@ -25,18 +25,19 @@ const getWeeklyChange = (value: number) => {
 
 export const CalorieResult = ({ result }: TCalorieResultProps) => {
   const [sliderValue, setSliderValue] = useState([2]);
+  if (!result) return null;
 
   const { bmr, targets } = result ?? { bmr: null, targets: [] };
   const activeTarget = targets[sliderValue[0]];
 
   return (
-    <Card className="mt-8" id="calorie-results">
+    <Card className="mt-8 lg:mt-4" id="calorie-results">
       {result && (
         <CardContent className="flex flex-col gap-3">
           <div className="flex flex-col w-full gap-2">
             <div className="w-full flex items-center justify-between gap-3">
-              {targets.map(({ adjustment }, i) => (
-                <Label className="text-xs text-muted-foreground" key={i}>
+              {targets.map(({ id, adjustment }) => (
+                <Label className="text-xs text-muted-foreground" key={id}>
                   {adjustment === 0
                     ? "Održavanje"
                     : `
