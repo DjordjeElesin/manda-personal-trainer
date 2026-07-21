@@ -3,7 +3,7 @@ import {
   calorieCalculatorSchema,
   type TCalorieCalculatorForm,
 } from "./CalorieCalculatorForm/calorieCalculatorSchema";
-import { ACTIVITY_LEVELS } from "@/constants";
+import { ACTIVITY_LEVELS, DESKTOP_MEDIA_QUERY } from "@/constants";
 import z from "zod";
 import { getCalorieTargets } from "./calorieCalculatorUtils";
 import { activityLevels } from "./CalorieCalculatorForm/ActivityLevels/activityLevelsList";
@@ -51,6 +51,10 @@ export const useCalorieCalculator = () => {
       activityMultiplier: activityMultiplier ?? 0,
     });
     setResult(data);
+
+    // On wide screens the results render next to the form and are already in
+    // view, so only scroll when the layout is stacked.
+    if (window.matchMedia(DESKTOP_MEDIA_QUERY).matches) return;
 
     setTimeout(() => {
       const element = document.getElementById("calorie-results");
