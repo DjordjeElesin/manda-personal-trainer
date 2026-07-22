@@ -8,6 +8,7 @@ import { ServicesSection } from "./ServicesSection";
 import { TestimonialsSection } from "./TestimonialsSection";
 import { CalculatorTeaser } from "./CalculatorTeaser";
 import { FinalCta } from "./FinalCta";
+import { FreeGuidesSection } from "./FreeGuidesSection";
 
 export const LandingPage = () => {
   return (
@@ -22,6 +23,7 @@ export const LandingPage = () => {
         <ServicesSection />
         <TestimonialsSection />
         <CalculatorTeaser />
+        <FreeGuidesSection />
         <FinalCta />
       </main>
     </div>
