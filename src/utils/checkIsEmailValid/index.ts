@@ -1,0 +1,1 @@
+export { checkIsEmailValid } from "./checkIsEmailValid";
