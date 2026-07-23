@@ -29,7 +29,7 @@ export type TCalorieTarget = {
 
 export type TNavLink = {
   label: string;
-  href: string;
+  link: string;
 };
 
 export type TStat = {

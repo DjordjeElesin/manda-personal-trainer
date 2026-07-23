@@ -1,4 +1,3 @@
-import { Navbar } from "./Navbar";
 import { HeroSection } from "./HeroSection";
 import { StatsBar } from "./StatsBar";
 import { ValuesMarquee } from "./ValuesMarquee";
@@ -13,7 +12,6 @@ import { FreeGuidesSection } from "./FreeGuidesSection";
 export const LandingPage = () => {
   return (
     <div className="w-full bg-black text-white">
-      <Navbar />
       <main>
         <HeroSection />
         <StatsBar />

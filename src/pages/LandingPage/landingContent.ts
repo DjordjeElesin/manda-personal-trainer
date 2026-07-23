@@ -7,15 +7,7 @@ import transformation06 from "@/assets/transformations/transformation-06.jpg";
 import transformation07 from "@/assets/transformations/transformation-07.jpg";
 import transformation08 from "@/assets/transformations/transformation-08.jpg";
 import transformation09 from "@/assets/transformations/transformation-09.png";
-import type { TNavLink, TPlan, TStat } from "@/types";
-
-export const NAV_LINKS: TNavLink[] = [
-  { label: "Rezultati", href: "#rezultati" },
-  { label: "O meni", href: "#o-meni" },
-  { label: "Usluge", href: "#usluge" },
-  { label: "Utisci", href: "#utisci" },
-  { label: "Kalkulator", href: "/kalkulator" },
-];
+import type { TPlan, TStat } from "@/types";
 
 export const STATS: TStat[] = [
   { value: 70, suffix: "+", label: "Zadovoljnih klijenata" },
@@ -28,7 +20,7 @@ export const PLANS: TPlan[] = [
   {
     name: "Essentials",
     price: { rsd: "4.000", eur: "35", period: "mesečno" },
-    tagline: "Najjeftiniji početak - samostalni sistem",
+    tagline: "Najpovoljniji početak - samostalni sistem",
     highlighted: false,
     features: [
       "Individualni trening program na osnovu cilja",
@@ -134,7 +126,7 @@ export const TESTIMONIALS: TTestimonial[] = [
     role: "Klijent",
     rating: 5,
     quote:
-      "Gotov prvi trening, konačno da mi neko sastavi trening koji ne smara. E i inače, brutalna nedelja - baš sam zadovoljan treninzima i programom.",
+      "Gotov prvi trening, konačno da mi neko sastavi trening koji ne smara. E i inače, brutalna nedelja, baš sam zadovoljan treninzima i programom.",
   },
   {
     name: "Majka klijenta",
@@ -148,6 +140,6 @@ export const TESTIMONIALS: TTestimonial[] = [
     role: "Baka rekla može bolje",
     rating: 4,
     quote:
-      "Hvala ti na odličnim treninzima! Glavni cilj smo postigli - baka je prezadovoljna mojim izgledom. Kaže da još može bolje, pa nastavljamo misiju. Tvoja motivacija stvarno čini razliku!",
+      "Hvala ti na odličnim treninzima! Glavni cilj smo postigli, baka je prezadovoljna mojim izgledom. Kaže da još može bolje, pa nastavljamo misiju. Tvoja motivacija stvarno čini razliku!",
   },
 ];

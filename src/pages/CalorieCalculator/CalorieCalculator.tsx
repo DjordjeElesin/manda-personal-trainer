@@ -13,7 +13,7 @@ export const CalorieCalculator = () => {
     useCalorieCalculator();
 
   return (
-    <div className="mx-auto w-full max-w-2xl px-4 py-3 md:py-16 lg:max-w-6xl">
+    <div className="mx-auto w-full max-w-2xl px-4 pt-24 pb-8 md:pt-28 md:pb-16 lg:max-w-6xl">
       <div className="flex flex-col gap-2">
         <Link
           to="/"
