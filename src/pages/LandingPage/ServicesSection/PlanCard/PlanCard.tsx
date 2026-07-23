@@ -1,9 +1,9 @@
-import { WhatsappButton } from "../../WhatsappButton";
 import { PlanFeature } from "../PlanFeature";
 import type { TPlan } from "@/types";
 import { Reveal } from "@/components/Reveal";
 import { PlanPrice } from "./PlanPrice";
 import { Star } from "lucide-react";
+import { WhatsappButton } from "@/components/WhatsappButton";
 
 const planMessage = (name: string) => `Zdravo Mando! Zanima me ${name} paket.`;
 

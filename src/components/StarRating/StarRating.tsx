@@ -3,7 +3,6 @@ import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type TStarRatingProps = {
-  // Number of filled stars out of `total`.
   rating: number;
   total?: number;
   className?: string;

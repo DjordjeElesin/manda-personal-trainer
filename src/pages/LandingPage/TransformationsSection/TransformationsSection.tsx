@@ -3,8 +3,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCarousel } from "@/hooks";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "../SectionHeading";
-import { WhatsappButton } from "../WhatsappButton";
 import { TRANSFORMATIONS } from "../landingContent";
+import { WhatsappButton } from "@/components/WhatsappButton";
 
 type TCarouselButtonProps = {
   id: string;

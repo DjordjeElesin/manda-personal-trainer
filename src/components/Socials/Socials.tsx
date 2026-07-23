@@ -2,6 +2,7 @@ import { FaInstagram } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { FaYoutube } from "react-icons/fa";
 import { EMAIL, INSTAGRAM_LINK, YOUTUBE_CHANNEL } from "@/constants";
+import { cn } from "@/lib/utils";
 
 type TSocialsProps = {
   includeLabels?: boolean;
@@ -37,9 +38,10 @@ export const Socials = ({
   className,
 }: TSocialsProps) => {
   return (
-    <div className={`flex flex-wrap gap-4 text-white/60 ${className}`}>
+    <div className={cn("flex flex-wrap gap-4 text-white/60", className)}>
       {data.map((social) => (
         <a
+          key={social.ariaLabel}
           href={social.link}
           target={social.target}
           aria-label={social.ariaLabel}

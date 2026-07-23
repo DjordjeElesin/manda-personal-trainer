@@ -2,8 +2,8 @@ import { Quote } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "../SectionHeading";
-import { StarRating } from "../StarRating";
 import { TESTIMONIALS } from "../landingContent";
+import { StarRating } from "@/components/StarRating";
 
 export const TestimonialsSection = () => {
   return (
@@ -23,7 +23,7 @@ export const TestimonialsSection = () => {
             <Reveal
               key={name}
               delay={index * 120}
-              className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-white/25"
+              className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/3 p-6 transition-colors hover:border-white/25"
             >
               <Quote className="size-8 text-white/20" aria-hidden />
               <p className="flex-1 text-sm leading-relaxed text-white/80">

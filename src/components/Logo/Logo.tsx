@@ -4,9 +4,6 @@ type TLogoProps = {
   className?: string;
 };
 
-// Typographic MANDA wordmark. Echoes the graffiti mark baked into his photos
-// (heavy, italic, with the underscore accent) but stays crisp and scalable.
-// Easy to swap for a real SVG logo later.
 export const Logo = ({ className }: TLogoProps) => {
   return (
     <span

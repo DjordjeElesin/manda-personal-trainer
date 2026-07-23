@@ -2,6 +2,7 @@ export const INSTAGRAM_LINK =
   "https://www.instagram.com/2manda3?igsh=b2U1bHFsYmxwcHg3";
 export const EMAIL = "ajemmanda@gmail.com";
 export const YOUTUBE_CHANNEL = "https://www.youtube.com/@2manda3";
+
 export const WHATSAPP_NUMBER = "38169648719";
 
 const WHATSAPP_PREFILLED_MESSAGE =

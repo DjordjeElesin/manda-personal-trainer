@@ -1,46 +1,20 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Logo } from "../Logo";
+import { NAV_LINKS } from "./navLinks";
 import { WhatsappButton } from "../WhatsappButton";
-import { NAV_LINKS } from "../landingContent";
-
-type TNavItemProps = {
-  href: string;
-  label: string;
-  onNavigate: () => void;
-  className?: string;
-};
-
-// Anchors (#...) scroll within the page; routes (/...) navigate. Everything
-// else stays a plain link so the calculator route keeps working.
-const NavItem = ({ href, label, onNavigate, className }: TNavItemProps) => {
-  const baseClass = cn(
-    "text-sm font-medium text-white/70 transition-colors hover:text-white",
-    className,
-  );
-
-  if (href.startsWith("#")) {
-    return (
-      <a href={href} onClick={onNavigate} className={baseClass}>
-        {label}
-      </a>
-    );
-  }
-
-  return (
-    <Link to={href} onClick={onNavigate} className={baseClass}>
-      {label}
-    </Link>
-  );
-};
+import { NavItem } from "./NavItem";
+import { Logo } from "../Logo";
 
 export const Navbar = () => {
+  const { pathname } = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const isTransparent = pathname === "/" && !isScrolled && !isMenuOpen;
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 24);
@@ -56,26 +30,26 @@ export const Navbar = () => {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        isScrolled || isMenuOpen
-          ? "border-b border-white/10 bg-black/80 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent",
+        isTransparent
+          ? "border-b border-transparent bg-transparent"
+          : "border-b border-white/10 bg-black/80 backdrop-blur-md",
       )}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-        <a
-          href="#top"
+        <Link
+          to="/#top"
           onClick={onCloseMenu}
           aria-label="MANDA - početak"
           className="text-white transition-opacity hover:opacity-80"
         >
           <Logo />
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.map(({ href, label }) => (
+          {NAV_LINKS.map(({ link, label }) => (
             <NavItem
-              key={href}
-              href={href}
+              key={link}
+              link={link}
               label={label}
               onNavigate={onCloseMenu}
             />
@@ -107,10 +81,10 @@ export const Navbar = () => {
       {isMenuOpen && (
         <div className="animate-in fade-in slide-in-from-top-2 border-t border-white/10 duration-200 lg:hidden">
           <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4">
-            {NAV_LINKS.map(({ href, label }) => (
+            {NAV_LINKS.map(({ link: href, label }) => (
               <NavItem
                 key={href}
-                href={href}
+                link={href}
                 label={label}
                 onNavigate={onCloseMenu}
                 className="py-2 text-base"

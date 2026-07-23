@@ -1,6 +1,6 @@
 import { Reveal } from "@/components/Reveal";
-import { WhatsappButton } from "../WhatsappButton";
 import { Socials } from "@/components/Socials";
+import { WhatsappButton } from "@/components/WhatsappButton";
 
 export const FinalCta = () => {
   return (
